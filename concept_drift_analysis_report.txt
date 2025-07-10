@@ -1,0 +1,112 @@
+
+# COMPREHENSIVE CONCEPT DRIFT ANALYSIS REPORT
+Generated on: 2025-07-03 16:17:11
+
+## EXECUTIVE SUMMARY
+This report analyzes concept drift in the provided business process event log, focusing on temporal changes in activity patterns, process variants, resource utilization, and performance metrics.
+
+## 1. DATASET OVERVIEW
+
+### Basic Statistics:
+- **Total Process Instances (Traces):** 1,202,267
+- **Total Events:** 1,202,267
+- **Unique Activities:** 26
+- **Unique Resources:** 149
+- **Time Span:** 397 days
+- **Average Trace Length:** 38.16 events
+- **Trace Length Range:** 10 - 180 events
+
+### Activity Distribution:
+- **W_Validate application:** 209,496 events (17.4%)
+- **W_Call after offers:** 191,092 events (15.9%)
+- **W_Call incomplete files:** 168,529 events (14.0%)
+- **W_Complete application:** 148,900 events (12.4%)
+- **W_Handle leads:** 47,264 events (3.9%)
+- **O_Create Offer:** 42,995 events (3.6%)
+- **O_Created:** 42,995 events (3.6%)
+- **O_Sent (mail and online):** 39,707 events (3.3%)
+- **A_Validating:** 38,816 events (3.2%)
+- **A_Create Application:** 31,509 events (2.6%)
+
+
+## 2. TEMPORAL DRIFT ANALYSIS
+
+### Activity Pattern Drift:
+✅ **NO SIGNIFICANT ACTIVITY DRIFT** detected across time windows.
+
+
+### Resource Utilization Drift:
+⚠️ **RESOURCE DRIFT DETECTED** in 1 window transitions.
+
+
+## 3. PROCESS VARIANT DRIFT ANALYSIS
+
+### Directly-Follows Relationship Changes:
+- **First Half Relations:** 172
+- **Second Half Relations:** 161
+- **Common Relations:** 155
+- **New Relations:** 6
+- **Disappeared Relations:** 17
+
+### New Process Paths Detected:
+- W_Call after offers → O_Returned
+- A_Incomplete → O_Create Offer
+- W_Shortened completion  → O_Sent (mail and online)
+- O_Cancelled → O_Accepted
+- O_Returned → W_Call after offers
+- O_Cancelled → W_Shortened completion 
+
+### Disappeared Process Paths:
+- W_Personal Loan collection → W_Validate application
+- W_Shortened completion  → O_Create Offer
+- O_Sent (online only) → O_Sent (mail and online)
+- O_Returned → O_Create Offer
+- W_Shortened completion  → W_Call incomplete files
+- A_Accepted → W_Shortened completion 
+- O_Sent (mail and online) → O_Accepted
+- W_Validate application → W_Personal Loan collection
+- O_Sent (mail and online) → O_Sent (online only)
+- W_Validate application → O_Sent (online only)
+
+### Significant Frequency Changes (37 detected):
+- **O_Created → A_Denied:** 1.57x change
+- **A_Incomplete → O_Returned:** 20.31x change
+- **W_Shortened completion  → A_Accepted:** 0.12x change
+- **O_Returned → A_Cancelled:** 3.00x change
+- **A_Incomplete → O_Accepted:** 1.71x change
+
+
+## 4. PERFORMANCE DRIFT ANALYSIS
+
+### Case Duration Trends:
+- **Initial Average Duration:** 513.62 hours
+- **Final Average Duration:** 505.54 hours
+- **Overall Duration Change:** -1.6%
+✅ **STABLE PERFORMANCE** maintained over time.
+
+
+## 5. DRIFT DETECTION SUMMARY
+
+### Overall Assessment:
+⚠️ **MODERATE CONCEPT DRIFT DETECTED** - 2 drift types identified:
+- Resource Utilization Drift
+- Process Variant Drift
+
+
+## 6. RECOMMENDATIONS
+
+### Process Monitoring:
+- Monitor the identified drift patterns continuously
+- Set up alerts for significant deviations in key metrics
+- Review process documentation and training materials
+
+### Process Improvement:
+- Review resource allocation and workload distribution
+- Analyze new process paths for compliance and efficiency
+
+- Implement regular process mining analysis cycles
+- Establish baseline metrics for future drift detection
+
+---
+*This report was generated using PM4py and automated concept drift detection algorithms.*
+*For detailed technical analysis, please refer to the underlying drift detection metrics.*
